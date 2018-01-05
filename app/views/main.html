@@ -8,7 +8,7 @@
           <div class="md-toolbar-tools">
               <!-- page title -->
               <div flex md-truncate>
-                  <h3 class="md-headline">People</h3>
+                  <h3 class="md-headline">Elements</h3>
               </div>
 
               <!-- button for creating  -->
@@ -26,8 +26,9 @@
 
                   <!--  information -->
                   <div class="md-list-item-text">
-                      <h3>{{element.first_name}}</h3>
-                      <h4>{{element.last_name}}</h4>
+                      <h3 ng-bind-html="element.name | asColor:element.color"></h3>
+                      <h4>Year {{element.year}}</h4>
+                      <h4>Pantone value {{element.pantone_value}}</h4>
                   </div>
 
                   <!-- 'read one', 'edit' and 'delete' buttons -->

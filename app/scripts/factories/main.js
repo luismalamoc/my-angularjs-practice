@@ -2,15 +2,15 @@ app.factory("MainFactory", function($http){
      
     var factory = {};
  
-    // read all products
+    // read all elements
     factory.get = function($scope){
         return $http({
             method: 'GET',
-            url: $scope.apiUrl+'users'
+            url: $scope.apiUrl+'unknown'
         });
     };
      
-    // create product
+    // create elements
     factory.create = function($scope){
         return $http({
             method: 'POST',
