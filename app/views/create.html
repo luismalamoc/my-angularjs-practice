@@ -3,7 +3,7 @@
          
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Create People</h2>
+                <h2>Create</h2>
             </div>
         </md-toolbar>
  
@@ -12,18 +12,13 @@
  
                 <!-- we are using ng-model to bind this view and the 'product model -->
                 <md-input-container class="md-block">
-                    <label>Username</label>
-                    <input ng-model="UserName">
+                    <label>Your Name</label>
+                    <input ng-model="name">
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <label>FirstName</label>
-                    <input ng-model="FirstName">
-                </md-input-container>
- 
-                <md-input-container class="md-block">
-                    <label>LastName</label>
-                    <input ng-model="LastName">
+                    <label>Your Favorites Movies (separated by coma)</label>
+                    <input ng-model="movies">
                 </md-input-container>
  
             </div>
@@ -31,7 +26,7 @@
  
         <md-dialog-actions layout="row">
             <md-button ng-click="cancel()">Cancel</md-button>
-            <md-button ng-click="createPerson()" class="md-primary">Create</md-button>
+            <md-button ng-click="create()" class="md-primary">Create</md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

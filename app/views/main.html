@@ -3,7 +3,7 @@
 
   <div flex="80" class='m-20px-0'>
 
-      <!-- page title & 'create product' button -->
+      <!-- page title & 'create ' button -->
       <md-toolbar class="md-hue-2">
           <div class="md-toolbar-tools">
               <!-- page title -->
@@ -11,8 +11,8 @@
                   <h3 class="md-headline">People</h3>
               </div>
 
-              <!-- button for creating product -->
-              <md-button class="md-raised" ng-click="showCreateProductForm()">Create</md-button>
+              <!-- button for creating  -->
+              <md-button class="md-raised" ng-click="showCreateForm()">Create</md-button>
 
           </div>
       </md-toolbar>
@@ -20,15 +20,14 @@
       <!-- 'search' bar will be here -->
 
       <md-content flex>
-          <!-- show product record list -->
-          <md-list ng-init="readPeople()">
-              <md-list-item class="md-3-line" ng-repeat="person in people">
+          <!-- show  record list -->
+          <md-list ng-init="read()">
+              <md-list-item class="md-3-line" ng-repeat="element in list">
 
-                  <!-- product information -->
+                  <!--  information -->
                   <div class="md-list-item-text">
-                      <h3>{{person.FirstName}}</h3>
-                      <h4>{{person.LastName}}</h4>
-                      <h4>{{person.Gender}}</h4>
+                      <h3>{{element.first_name}}</h3>
+                      <h4>{{element.last_name}}</h4>
                   </div>
 
                   <!-- 'read one', 'edit' and 'delete' buttons -->

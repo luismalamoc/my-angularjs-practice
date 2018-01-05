@@ -9,22 +9,21 @@
  * Controller of the myAngularjsPracticeApp
  */
 app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
-    console.log('Hello');
-    // read people
-    $scope.readPeople = function(){
+    
+    // read 
+    $scope.read = function(){
  
-        // use people factory
-        MainFactory.readPeople().then(function successCallback(response){
-            
-            $scope.people = response.data.value;
+        // use factory
+        MainFactory.get().then(function successCallback(response){
+            $scope.list = response.data.data;
         }, function errorCallback(response){
             $scope.showToast("Unable to read record.");
         });
  
     }
      
-    // show 'create people form' in dialog box
-    $scope.showCreateProductForm = function(event){
+    // show 'create form' in dialog box
+    $scope.showCreateForm = function(event){
     
         $mdDialog.show({
             controller: DialogController,
@@ -45,29 +44,24 @@ app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
     }
 
     // clear variable / form values
-    $scope.clearPeopleForm = function(){
-        $scope.id = "";
+    $scope.clearForm = function(){
         $scope.name = "";
-        $scope.UserName = "";
-        $scope.LastName = "";
+        $scope.movies = "";
     }
 
     // create new product
-    $scope.createPerson = function(){
+    $scope.create = function(){
     
-        MainFactory.createPeople($scope).then(function successCallback(response){
+        MainFactory.create($scope).then(function successCallback(response){
     
             // tell the user new product was created
-            $scope.showToast(response.data.message);
-    
-            // refresh the list
-            $scope.readPeople();
-    
+            $scope.showToast("Success "+response.data.id+" to "+response.data.name);
+        
             // close dialog
             $scope.cancel();
     
             // remove form values
-            $scope.clearPeopleForm();
+            $scope.clearForm();
     
         }, function errorCallback(response){
             $scope.showToast("Unable to create record.");
