@@ -7,11 +7,6 @@
  * # AboutCtrl
  * Controller of the myAngularjsPracticeApp
  */
-angular.module('myAngularjsPracticeApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+app.controller('AboutCtrl', function ($scope) {
+  $scope.msg = "This is my first incursion in angularjs building a CRUD example.";
+});

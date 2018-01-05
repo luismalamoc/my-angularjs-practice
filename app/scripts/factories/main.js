@@ -1,6 +1,5 @@
-angular.module('myAngularjsPracticeApp')
-.factory("MainFactory", function($http){
- 
+app.factory("MainFactory", function($http){
+     
     var factory = {};
  
     // read all products

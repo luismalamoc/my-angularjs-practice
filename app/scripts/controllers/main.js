@@ -8,9 +8,8 @@
  * # MainCtrl
  * Controller of the myAngularjsPracticeApp
  */
-angular.module('myAngularjsPracticeApp')
-.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
- 
+app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
+    console.log('Hello');
     // read people
     $scope.readPeople = function(){
  
@@ -29,7 +28,7 @@ angular.module('myAngularjsPracticeApp')
     
         $mdDialog.show({
             controller: DialogController,
-            templateUrl: './app/people/create_people.template.html',
+            templateUrl: 'views/create.html',
             parent: angular.element(document.body),
             clickOutsideToClose: true,
             scope: $scope,

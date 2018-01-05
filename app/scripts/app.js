@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('myAngularjsPracticeApp', [
     'ngAnimate',
     'ngAria',
@@ -17,19 +17,17 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MainCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'
