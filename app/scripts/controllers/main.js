@@ -8,13 +8,14 @@
  * # MainCtrl
  * Controller of the myAngularjsPracticeApp
  */
-app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
-    
+app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory, apiUrl){
+
+    $scope.apiUrl = apiUrl;
     // read 
     $scope.read = function(){
- 
+        
         // use factory
-        MainFactory.get().then(function successCallback(response){
+        MainFactory.get($scope).then(function successCallback(response){
             $scope.list = response.data.data;
         }, function errorCallback(response){
             $scope.showToast("Unable to read record.");
@@ -49,13 +50,15 @@ app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
         $scope.movies = "";
     }
 
-    // create new product
+    // create new element
     $scope.create = function(){
     
         MainFactory.create($scope).then(function successCallback(response){
     
-            // tell the user new product was created
-            $scope.showToast("Success "+response.data.id+" to "+response.data.name);
+            // tell the user new element was created
+            $scope.showToast("Success! ID assigned "+response.data.id+" to "+response.data.name
+                +"\n your favorites are: "+response.data.movies
+                +"\n created at: "+response.data.createdAt+"");
         
             // close dialog
             $scope.cancel();
@@ -79,7 +82,5 @@ app.controller('MainCtrl', function($scope, $mdDialog, $mdToast, MainFactory){
     }
 
 
-    
-    // readOneProduct will be here
 
 });

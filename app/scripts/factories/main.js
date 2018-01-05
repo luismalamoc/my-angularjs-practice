@@ -3,10 +3,10 @@ app.factory("MainFactory", function($http){
     var factory = {};
  
     // read all products
-    factory.get = function(){
+    factory.get = function($scope){
         return $http({
             method: 'GET',
-            url: 'https://reqres.in/api/users'
+            url: $scope.apiUrl+'users'
         });
     };
      
@@ -18,7 +18,7 @@ app.factory("MainFactory", function($http){
                 'name' : $scope.name,
                 'movies' : JSON.stringify($scope.movies.split(','))
             },
-            url: 'https://reqres.in/api/users'
+            url: $scope.apiUrl+'users'
         });
     };
  
